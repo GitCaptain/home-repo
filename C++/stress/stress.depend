@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1420864261 source:/home/alexander/Projects/C++/stress/main.cpp
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<memory.h>
+

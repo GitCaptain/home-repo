@@ -1,7 +1,7 @@
 """класс куча"""
 
 class queue():
-    
+
     def __init__(self, arr, mod):
     """
     def __init__(self, arr, mod)
@@ -22,14 +22,14 @@ class queue():
     def makeheap():
         for element in self.arr:
             self.insert(element)
-    
+
     def insert(element):
         self.len += 1
         self.queue.append(element)
         ind = self.len
         while ind and
 
-        
+
 
 
 

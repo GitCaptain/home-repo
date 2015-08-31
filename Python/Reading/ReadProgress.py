@@ -3,6 +3,7 @@
 
 import os
 import string
+import sys
 
 def Clear(String):
     """
@@ -22,14 +23,19 @@ def Clear(String):
 def main():
 
     """
-    Основная функция
-    Запускает программу в зависимости от используемой системы (ЕЩЕ НЕ СДЕЛАНО)
+    Работает на винде и линухе
+    больше нигде не проверялась
     """
 
     Books = {} #словарь в котором будут хранится пары: книга - страница
     Path = os.getcwd() + "/times" #Рабочая директория + название файла
+    sysName = sys.platform
+    #print(sysName)
+    if sysName == "win32":
+      File = open(Path, encoding = "utf8")
+    else:
+      File = open(Path)
 
-    File = open(Path)
     Times = File.readline() #количество запусков программы
     print("You have run this program %s times " % Times.rsplit()[0])
 

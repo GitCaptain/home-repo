@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1420727814 source:/home/alexander/Projects/C++/zaoch/main.cpp
-	<iostream>
-	<string>
-	<algorithm>
-

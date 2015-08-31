@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1412082901 source:/home/alexander/Projects/C++/verb/main.cpp
+	<iostream>
+	<string>
+	<cstdlib>
+	<vector>
+	<time.h>
+

@@ -30,7 +30,7 @@ def main():
     Books = {} #словарь в котором будут хранится пары: книга - страница
     Path = os.getcwd() + "/times" #Рабочая директория + название файла
     sysName = sys.platform
-    #print(sysName)
+
     if sysName == "win32":
       File = open(Path, encoding = "utf8")
     else:

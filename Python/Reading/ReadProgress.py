@@ -1,13 +1,14 @@
-#useful programm
+#coding: utf-8
 """Подсказывает на какой странице книги я остановился"""
 
 import os
 import string
+import sys
 
 def Clear(String):
     """
     Очищает строку от символов " [],' " (Заменяя их на "")
-    которые остались после того как она была превращена в строку из списка    
+    которые остались после того как она была превращена в строку из списка
     """
 
     String = String.replace("[","")
@@ -15,37 +16,42 @@ def Clear(String):
     String = String.replace(",","",String.count(","))
     String = String.replace("'","",String.count("'"))
     String = String.replace('"',"",String.count('"'))
-    
+
     return String
 
 
 def main():
 
     """
-    Основная функция
-    Запускает программу в зависимости от используемой системы (ЕЩЕ НЕ СДЕЛАНО)
+    Работает на винде и линухе
+    больше нигде не проверялась
     """
-    
+
     Books = {} #словарь в котором будут хранится пары: книга - страница
     Path = os.getcwd() + "/times" #Рабочая директория + название файла
-    
-    File = open(Path)
+    sysName = sys.platform
+
+    if sysName == "win32":
+      File = open(Path, encoding = "utf8")
+    else:
+      File = open(Path)
+
     Times = File.readline() #количество запусков программы
     print("You have run this program %s times " % Times.rsplit()[0])
 
     #считывание данных
-    
+
     for BookName in File:
         BookName = BookName.split()
 
-        *CurrentBook, CurrentPage = BookName #текущая книгa, текущая страница 
+        *CurrentBook, CurrentPage = BookName #текущая книгa, текущая страница
         CurrentBook, CurrentPage = str(CurrentBook), str(CurrentPage)
         CurrentBook = Clear(CurrentBook)
         Books[CurrentBook] = CurrentPage
-            
-        print("You have stopped on %s page of ' %s' " % ( CurrentPage, CurrentBook ) ) 
+
+        print("You have stopped on %s page of ' %s' " % ( CurrentPage, CurrentBook ) )
         NewPage = input("Will you enter new page for this book? ")
-        
+
         #обработка полученных данных и составление новых
         if NewPage.isdigit() and int(NewPage) > int(CurrentPage): #все норм
             print("Got it")
@@ -54,11 +60,11 @@ def main():
             Books[CurrentBook] = NewPage
         elif NewPage.isdigit(): #что-то не так
             print("Amazing!! Crazy!!!")
-            
+
     File.close()
 
-    
-    #запись новых данных в файл    
+
+    #запись новых данных в файл
     File = open(Path,'w')
     File.write(str(int(Times) + 1)+"\n")
     for Book in Books:

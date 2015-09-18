@@ -47,9 +47,9 @@ int main() {
 	l_n = 3;
 
 	double res = ++num - (ch + l_n * 3.5); //сначала выполняться действия в скобках: ch преобразуется в int(код элемента), затем складывается c l_n * 3.5 - уже double, после num инкрементируется и из него вычитается выражение в скобках.
-	cout << res << endl;
+	cout << "Результат выражения: " << res << endl;
 
-	cout << "sizeof int: " << sizeof(int) << endl;
+	cout << "\nsizeof int: " << sizeof(int) << endl;
 	cout << "sizeof char: " << sizeof(char) << endl;
 	cout << "sizeof bool: " << sizeof(bool) << endl;
 	cout << "sizeof unsigned short: " << sizeof(unsigned short) << endl;
